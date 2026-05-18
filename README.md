@@ -1,16 +1,62 @@
-# React + Vite
+# 🤖 Profbot - Professeur de Mathématiques IA (Niveau 3ème)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> **Note :** Ce projet a été développé dans le cadre d'un projet personnel. Il sert d'exploration et de démonstration technique pour la création d'une interface conversationnelle connectée à une intelligence artificielle.
 
-Currently, two official plugins are available:
+Profbot est une application web moderne et interactive qui simule un professeur de mathématiques spécialement conçu pour accompagner les élèves de la classe de 3ème. L'application utilise l'API de Hugging Face pour générer des réponses pédagogiques, structurées et adaptées au programme de collège, avec un support complet pour les formules mathématiques.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Fonctionnalités
 
-## React Compiler
+- **Interface de Chat Intuitive** : Une interface fluide et réactive inspirée des messageries modernes, avec mode sombre intégré (Glassmorphism).
+- **Spécialisation 3ème** : Le bot est configuré (via un System Prompt strict) pour ne répondre qu'aux questions mathématiques du niveau 3ème (Théorème de Pythagore, Thalès, fonctions, probabilités, etc.) et refuse poliment les autres sujets.
+- **Rendu Mathématique** : Support complet et natif du langage LaTeX pour l'affichage élégant des formules mathématiques grâce à `react-markdown` et `rehype-katex`.
+- **Design Moderne** : Animations fluides, interface responsive (adaptée aux mobiles et PC), et un design soigné pour offrir une expérience utilisateur premium.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Technologies Utilisées
 
-## Expanding the ESLint configuration
+- **Frontend** : React.js (avec Vite)
+- **Style** : CSS Vanilla (Design System personnalisé, Flexbox, CSS Variables)
+- **IA & API** : Modèle de langage (LLM) Qwen via l'API d'inférence de **Hugging Face** (`@huggingface/inference`)
+- **Utilitaires** : `react-markdown`, `remark-math`, `rehype-katex` pour le formatage des mathématiques.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Installation Locale (Pour les développeurs)
+
+Si vous souhaitez faire tourner ce projet sur votre propre machine, suivez ces étapes :
+
+### 1. Cloner le projet
+
+```bash
+git clone https://github.com/rudigerroger/profbot-presentation.git
+cd profbot-presentation
+```
+
+### 2. Installer les dépendances
+
+Assurez-vous d'avoir Node.js installé, puis lancez :
+
+```bash
+npm install
+```
+
+### 3. Configurer la clé API Hugging Face
+
+Le bot a besoin d'une clé API pour réfléchir et générer des réponses.
+- Créez un compte gratuit sur [Hugging Face](https://huggingface.co/).
+- Allez dans les paramètres de votre compte pour créer un "Access Token" (avec les droits de lecture / Read).
+- À la racine du projet, créez un fichier nommé `.env`.
+- Ajoutez-y votre clé de cette manière :
+
+```env
+VITE_HF_API_KEY=hf_votre_cle_api_secrete_ici
+```
+*(Note : Le fichier `.env` est ignoré par Git pour des raisons de sécurité, votre clé ne sera donc jamais publiée sur GitHub).*
+
+### 4. Lancer le serveur de développement
+
+```bash
+npm run dev
+```
+
+Ouvrez votre navigateur à l'adresse indiquée (généralement `http://localhost:5173`) pour découvrir Profbot !
+
+---
+*Projet personnel créé par **Roger***
